@@ -93,6 +93,10 @@ function showQuestions(){
                 image.setAttribute("src", "icons8-cross-48.png");
                 selectedBtn.classList.add("wrong");
             }
+            //disabling all other buttons after any one button is clicked so that one can not cheat
+            Array.from(answerButtons.children).forEach(button=>{
+                button.disabled=true;
+            })
             resultDiv.style.display = "flex";
         });
     })
