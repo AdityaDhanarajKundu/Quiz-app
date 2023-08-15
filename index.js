@@ -88,6 +88,7 @@ function showQuestions(){
                 resultText.textContent = "Correct";
                 image.setAttribute("src", "icons8-tick-48.png");
                 selectedBtn.classList.add("correct");
+                score++;
             } else {
                 resultText.textContent = "Wrong";
                 image.setAttribute("src", "icons8-cross-48.png");
@@ -98,6 +99,7 @@ function showQuestions(){
                 button.disabled=true;
             })
             resultDiv.style.display = "flex";
+            nextButton.style.display = "block";
         });
     })
 }
@@ -112,4 +114,30 @@ function resetState(){
         answerButtons.removeChild(answerButtons.children[i]);
     }
 }
+
+function handleNext(){
+    questionIndex++;
+    if(questionIndex<questions.length){
+        showQuestions();
+    }
+    else{
+        showScore();
+    }
+}
+
+function showScore(){
+    resetState();
+    questionEl.innerText = `You scored ${score} out of ${questions.length} questions`;
+    nextButton.innerText = "Play Again";
+    nextButton.style.display = "block";
+}
+
+nextButton.addEventListener("click",()=>{
+    if(questionIndex<questions.length){
+        handleNext();
+    }
+    else{
+        start();
+    }
+});
 
