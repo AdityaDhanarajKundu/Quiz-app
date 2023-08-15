@@ -62,3 +62,20 @@ body{
     cursor: pointer;
     display: none;
 }
+
+.result{
+    display: none;
+    justify-content: center;
+}
+
+.result h3{
+    padding-top: 15px;
+}
+
+.correct{
+    background-color: #9aeabc;
+}
+
+.wrong{
+    background-color: #ff9393;
+}
